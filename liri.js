@@ -76,9 +76,9 @@
 	    twitter(keys).get("statuses/user_timeline/", params, function(error, data, response) {
 	        if (!error) {
 	            for (var i = 0; i < data.length; i++) {
-	                console.log("@" + data[i].user.screen_name + ": " + data[i].text + data[i].created_at + "------------------------------ " + "Tweet # " + (i + 1) + " ------------------------------");
+	                console.log("------------------------------ " + "Tweet # " + (i + 1) + " ------------------------------" + "@" + data[i].user.screen_name + ": " + data[i].text + data[i].created_at);
 
-	                log("@" + data[i].user.screen_name + ": " + data[i].text + data[i].created_at + "------------------------------ " + "Tweet # " + (i + 1) + " ------------------------------");
+	                log("------------------------------ " + "Tweet # " + (i + 1) + " ------------------------------" + "@" + data[i].user.screen_name + ": " + data[i].text + data[i].created_at);
 	            }
 	        } else {
 	            console.log("Error :" + error);
