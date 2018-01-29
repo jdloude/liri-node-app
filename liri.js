@@ -1,7 +1,7 @@
 	// Node module imports needed to run the functions
 	var fs = require("fs"); //reads and writes files
 	var request = require("request"); //NPM package for request
-	var keys = require("./keys.js"); //Loads Twitter auth
+	var keys = require("./keys.js"); //Loads Twitter auth keys
 	var twitter = require("twitter"); //NPM for Twitter
 	var Spotify = require("node-spotify-api"); //Npm for spotify
 	var userInput = process.argv[2]; //User query
@@ -46,6 +46,7 @@
 	                console.log("Plot: " + movieObject.Plot);
 	                console.log("Actors: " + movieObject.Actors);
 
+	                // calling log function to write in log.txt
 	                log("Title: " + movieObject.Title);
 	                log("Year: " + movieObject.Year);
 	                log("Imdb Rating: " + movieObject.imdbRating);
@@ -78,6 +79,7 @@
 	            for (var i = 0; i < data.length; i++) {
 	                console.log("------------------------------ " + "Tweet # " + (i + 1) + " ------------------------------" + "@" + data[i].user.screen_name + ": " + data[i].text + data[i].created_at);
 
+	                // calling log function to write in log.txt
 	                log("------------------------------ " + "Tweet # " + (i + 1) + " ------------------------------" + "@" + data[i].user.screen_name + ": " + data[i].text + data[i].created_at);
 	            }
 	        } else {
@@ -148,7 +150,7 @@
 	    });
 	}
 
-	// Do What It Says function, uses the reads and writes module to access the log.txt file and write everything that returns in terminal in the log.txt file
+	// Log function uses the reads and writes module to access the log.txt file and write everything that returns in terminal in the log.txt file
 	function log(logResults) {
 	    fs.appendFile("log.txt", logResults, (error) => {
 	        if (error) {
