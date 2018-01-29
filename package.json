@@ -1,0 +1,16 @@
+{
+    "name": "liri",
+    "version": "1.0.0",
+    "description": "command line node app to make api calls and retrieve information about music, movies and twitter",
+    "main": "liri.js",
+    "dependencies": {
+        "node-spotify-api": "^1.0.7",
+        "request": "^2.83.0",
+        "twitter": "^1.7.1"
+    },
+    "devDependencies": {},
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/jdloude/liri-node-app.git"
+    }
+}
