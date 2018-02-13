@@ -37,24 +37,24 @@
 	        function(error, response, body) {
 	            if (!error && response.statusCode == 200) {
 	                var movieObject = JSON.parse(body);
-	                console.log("Title: " + movieObject.Title);
-	                console.log("Year: " + movieObject.Year);
-	                console.log("Imdb Rating: " + movieObject.imdbRating);
-	                console.log("Rotten Tomatoes Rating: " + movieObject.tomatoRating);
-	                console.log("Country: " + movieObject.Country);
-	                console.log("Language: " + movieObject.Language);
-	                console.log("Plot: " + movieObject.Plot);
-	                console.log("Actors: " + movieObject.Actors);
+	                console.log("Title: " + movieObject.Title + "\n");
+	                console.log("Year: " + movieObject.Year + "\n");
+	                console.log("Imdb Rating: " + movieObject.imdbRating + "\n");
+	                console.log("Rotten Tomatoes Rating: " + movieObject.tomatoRating + "\n");
+	                console.log("Country: " + movieObject.Country + "\n");
+	                console.log("Language: " + movieObject.Language + "\n");
+	                console.log("Plot: " + movieObject.Plot + "\n");
+	                console.log("Actors: " + movieObject.Actors + "\n");
 
 	                // calling log function to write in log.txt
-	                log("Title: " + movieObject.Title);
-	                log("Year: " + movieObject.Year);
-	                log("Imdb Rating: " + movieObject.imdbRating);
-	                log("Rotten Tomatoes Rating: " + movieObject.tomatoRating);
-	                log("Country: " + movieObject.Country);
-	                log("Language: " + movieObject.Language);
-	                log("Plot: " + movieObject.Plot);
-	                log("Actors: " + movieObject.Actors);
+	                log("Title: " + movieObject.Title + "\n");
+	                log("Year: " + movieObject.Year + "\n");
+	                log("Imdb Rating: " + movieObject.imdbRating + "\n");
+	                log("Rotten Tomatoes Rating: " + movieObject.tomatoRating + "\n");
+	                log("Country: " + movieObject.Country + "\n");
+	                log("Language: " + movieObject.Language + "\n");
+	                log("Plot: " + movieObject.Plot + "\n");
+	                log("Actors: " + movieObject.Actors + "\n");
 
 	            } else {
 	                console.log("Error :" + error);
@@ -74,13 +74,13 @@
 	    params = { screen_name: twitterUsername };
 
 	    // console.log last 20 tweets and when they were created
-	    twitter(keys).get("statuses/user_timeline/", params, function(error, data, response) {
+	    twitter(keys).get("statuses/user_timeline/", params, function(error, data) {
 	        if (!error) {
 	            for (var i = 0; i < data.length; i++) {
-	                console.log("------------------------------ " + "Tweet # " + (i + 1) + " ------------------------------" + "@" + data[i].user.screen_name + ": " + data[i].text + data[i].created_at);
+	                console.log("------------------------------ " + "Tweet # " + (i + 1) + " ------------------------------\n" + "@" + data[i].user.screen_name + ": " + data[i].text + data[i].created_at + "\n");
 
 	                // calling log function to write in log.txt
-	                log("------------------------------ " + "Tweet # " + (i + 1) + " ------------------------------" + "@" + data[i].user.screen_name + ": " + data[i].text + data[i].created_at);
+	                log("------------------------------ " + "Tweet # " + (i + 1) + " ------------------------------\n" + "@" + data[i].user.screen_name + ": " + data[i].text + data[i].created_at + "\n");
 	            }
 	        } else {
 	            console.log("Error :" + error);
@@ -115,24 +115,26 @@
 	            }
 	        }
 
-	        console.log(queryTracks.length + " tracks found that match your query.");
-	        log(queryTracks.length + " tracks found that match your query.");
+	        console.log(queryTracks.length + " tracks found that match your query.\n");
+	        log(queryTracks.length + " tracks found that match your query.\n");
 
 	        if (queryTracks.length > 0) {
-	            console.log("Track: " + spotifyItems[queryTracks[0]].name);
-	            console.log("Artist: " + spotifyItems[queryTracks[0]].artists[0].name);
-	            console.log("Spotify link: " + spotifyItems[queryTracks[0]].external_urls.spotify);
-	            console.log("Album: " + spotifyItems[queryTracks[0]].album.name);
+	            for (i = 0; i < queryTracks.length; i++) {
+	                console.log("Track: " + spotifyItems[queryTracks[i]].name);
+	                console.log("Artist: " + spotifyItems[queryTracks[i]].artists[0].name);
+	                console.log("Spotify link: " + spotifyItems[queryTracks[i]].external_urls.spotify);
+	                console.log("Album: " + spotifyItems[queryTracks[i]].album.name + "\n\n");
 
-	            // calling log function to write in log.txt
-	            log("Track: " + spotifyItems[queryTracks[0]].name);
-	            log("Artist: " + spotifyItems[queryTracks[0]].artists[0].name);
-	            log("Spotify link: " + spotifyItems[queryTracks[0]].external_urls.spotify);
-	            log("Album: " + spotifyItems[queryTracks[0]].album.name);
+	                // calling log function to write in log.txt
+	                log("Track: " + spotifyItems[queryTracks[i]].name + "\n");
+	                log("Artist: " + spotifyItems[queryTracks[i]].artists[0].name + "\n");
+	                log("Spotify link: " + spotifyItems[queryTracks[i]].external_urls.spotify + "\n");
+	                log("Album: " + spotifyItems[queryTracks[i]].album.name + "\n");
+	            }
 
 	        } else if (queryTracks.length == 0) {
-	            console.log("Sorry, but spotify does not contain that song in their database :(");
-	            log("Sorry, but spotify does not contain that song in their database :(");
+	            console.log("Sorry, but spotify does not contain that song in their database :( \n");
+	            log("Sorry, but spotify does not contain that song in their database :( \n");
 	        }
 	    });
 	}
